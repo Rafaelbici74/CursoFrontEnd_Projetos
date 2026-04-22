@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <style>
+        div {
+            padding: 10px;
+            /* Espaçamento interno */
+            background-color: #f6f6f6;
+            overflow: hidden;
+            /* Evita problemas com elementos "flutuando" (float) */
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            /* Aplica estilo aos inputs de texto, textarea e select */
+            font: 17px Calibri;
+            width: 100%;
+            /* Ocupa toda a largura disponível */
+            padding: 17px;
+            /* Espaçamento interno (deixa o campo maior) */
+            border: 1px solid #ccc;
+            /* Borda cinza clara */
+            border-radius: 4px;
+            /* Bordas arredondadas */
+        }
+
+        input[type="button"] {
+            font: 17px Calibri;
+            width: auto;
+            /* Largura automática */
+            float: right;
+            /* Alinha o botão à direita */
+            cursor: pointer;
+            /* Muda o cursor ao passar o mouse */
+            padding: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- Container principal -->
+
+        <div>
+            <!-- Campo de nome -->
+            <input type="text" id="txtNome" placeholder="Nome do cliente">
+            <!-- Input para digitar o nome -->
+        </div>
+
+        <div>
+            <!-- Campo de idade -->
+            <input type="text" id="txtIdade" placeholder="Idade do cliente">
+        </div>
+
+        <div>
+            <!-- Campo de email -->
+            <input type="text" id="txtEmail" placeholder="Email do cliente">
+        </div>
+
+        <div>
+            <!-- Campo de seleção de país -->
+            <select id="seuPais">
+                <option selected value="">Escolha seu país</option>
+                <!-- Opção padrão -->
+
+                <option value="japao">Japão</option>
+                <option value="Brasil">Brasil</option>
+                <option value="usa">USA</option>
+            </select>
+        </div>
+
+        <div>
+            <!-- Botão de salvar -->
+            <input type="button" id="btn" value="Salvar" onclick="salvar()" />
+            <!-- Ao clicar, chama a função salvar() -->
+        </div>
+    </div>
+
+    <script>
+        function salvar() {
+            // Função executada ao clicar no botão
+
+            var nome = document.getElementById('txtNome').value;
+            // Pega o valor digitado no campo nome
+
+            var idade = document.getElementById('txtIdade').value;
+            // Pega o valor da idade
+
+            var email = document.getElementById('txtEmail').value;
+            // Pega o valor do email
+
+            var pais = document.getElementById('seuPais').value;
+            // Pega o país selecionado
+
+            var data =
+                'As informações abaixo estão corretas? \r Nome: ' + nome + '\r\n' +
+                // Monta mensagem com nome
+
+                'Idade: ' + idade + '\r\n' +
+                // Adiciona idade com quebra de linha
+
+                'Email: ' + email + '\r\t' +
+                // Adiciona email com tabulação
+
+                'Pais: ' + pais + '\r\t';
+                // Adiciona país
+
+            confirm(data);
+            // Mostra uma caixa de confirmação com os dados
+        }
+    </script>
+</body>
+</html>
